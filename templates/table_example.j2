@@ -1,0 +1,24 @@
+{% block content %}
+<h1>Jinja2 Created Bootstrap Table</h1>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <td>#ID</td>
+            {% for col in table.columns %}
+            <td>{{col}}</td>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for rows in table.rows %}
+        <tr>
+            <td># {{loop.index}}</td>
+            {% for row in rows %}
+                <td>{{row}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+   
+</table>
+{% endblock %}

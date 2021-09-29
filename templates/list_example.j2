@@ -1,0 +1,16 @@
+{% block content %}
+<ul class="list-group">
+{% for item in items %}
+  <li class="list-group-item">
+    <div class="card border-{{item.status}}">
+      <div class="card-header">
+        <h5 class="card-title">{{item.title}}</h5>
+      </div>
+      <div class="card-body">            
+          <p class="card-text">{{item.description}}</p>
+      </div>
+    </div>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}
