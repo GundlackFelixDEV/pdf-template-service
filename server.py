@@ -3,14 +3,16 @@ from flask_cors import CORS
 import logging
 import argparse
 import os, sys
+import PDFGenerator
 
 app = Flask(__name__)
 CORS(app)
-app.config['UPLOAD_FOLDER'] = './static/'
+app.config['UPLOAD_FOLDER'] = './.pdf/'
 
 @app.route('/pdf')
 def send_pdf():
-    return send_from_directory(app.config['UPLOAD_FOLDER'], 'lorem-ipsum.pdf')
+    PDFGenerator.getPDF('./.pdf/home.pdf', 'http://localhost:5001/')
+    return send_from_directory(app.config['UPLOAD_FOLDER'], 'home.pdf')
 
 @app.route('/')
 def home():
