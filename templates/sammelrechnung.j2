@@ -30,12 +30,12 @@
                             </div>
                         </div>
                         <div id="invoice" class="pb-2">
-                            <div class="text-nowrap"><b>Innvoice&nbsp;NR.:</b>&nbsp;123456</div>
-                            <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;August 2021</div>
-                            <div class="text-nowrap"><b>Date:</b>&nbsp;01.09.2021</div>
+                            <div class="text-nowrap"><b>Innvoice&nbsp;Nr.:</b>&nbsp;{{Invoice.InvoiceNr}}</div>
+                            <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;{{Invoice.Period}}</div>
+                            <div class="text-nowrap"><b>Date:</b>&nbsp;{{Invoice.Date}}</div>
                         </div>
                         <div id="nf_form">
-                            <div class="text-nowrap"><b>NF1&nbsp;Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
+                            <div class="text-nowrap"><b>Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
                             <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;{{NF_FORM.ocr_ValidFrom}}</div>
                             <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;{{NF_FORM.ocr_ValidUntil}}</div>
                         </div>
@@ -45,10 +45,10 @@
         </div>
         <div id="letter-body" class="d-flex row">
             <div id="message_top" class="col-12 pt-4">
-                <h1>Invoice for August 2021</h1>
+                <h1>Invoice for {{Invoice.Period}}</h1>
                 <div>
                     <p class="pb-2 m-0">Dear Mr. Biderman,</p>
-                    <p class="pb-2 m-0">Here is your collection innvoice for all your purchase from August 2021.</p>
+                    <p class="pb-2 m-0">Here is your collection innvoice for all your purchase from {{Invoice.Period}}.</p>
                     <p class="mb-0">We are happy informing you about your savings with us.</p>
                 </div>
             </div>
@@ -62,15 +62,15 @@
                     <div class="row pb-4 pt-4">
                         <div class="col-4 text-center">
                             <h5>Total paid upfront</h5>
-                            <span><b>119&nbsp;EUR</b></span>
+                            <span><b>{{Invoice.TotalAmount}}&nbsp;EUR</b></span>
                         </div>
                         <div class="col-4 text-center">
                             <h5>Remonon Price</h5>
-                            <span><b>105&nbsp;EUR</b></span>
+                            <span><b>{{Invoice.TotalRemonon}}&nbsp;EUR</b></span>
                         </div>
                         <div class="col-4 text-left">
                             <h4>Total Savings<h4>
-                            <span><b>14&nbsp;EUR</b></span>
+                            <span><b>{{Invoice.TotalRefund}}&nbsp;EUR</b></span>
                         </div>
                     </div>
                     <div id="disclaimer">

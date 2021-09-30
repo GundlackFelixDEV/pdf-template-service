@@ -27,12 +27,19 @@ def sammelrechnung():
     }
     nf_form = {
         "proc_agency": "USAG Grafenwoehr,<br>HQUSAG Grafenwoer,<br>Tax Relieve Office MWW,<br>Tax Reliev, Unit 2810",
-        "ocr_OrderNr": "123456",
+        "ocr_OrderNr": "GR-NF1-189559",
         "ocr_ValidFrom": "09-2021",
         "ocr_ValidUntil": "09-2022",
     }
-    
-    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form)
+    invoice = {
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "InvoiceNr": "A/10000-01/21/09/GR-NF1-189559.1",
+        "Period": "September 2021",
+        "Date": "1.10.2021"
+    }
+    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form, Invoice=invoice)
 
 @app.route('/')
 def home():
