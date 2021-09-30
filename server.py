@@ -20,9 +20,12 @@ def sammelrechnung():
     """Sammel Rechnung."""
     profile = {
         "reciepientsFullName": "Max Mustermann",
+        "lastName": "Mustermann",
+        "title": "Mr.",
         "reciepientsAddress": "Musterstraße 11",
         "zipCode": "123456",
-        "city": "Musterhausen"
+        "city": "Musterhausen",
+        "IBAN": "12345678910"
 
     }
     nf_form = {

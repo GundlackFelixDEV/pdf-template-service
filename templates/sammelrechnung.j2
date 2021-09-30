@@ -47,7 +47,7 @@
             <div id="message_top" class="col-12 pt-4">
                 <h1>Invoice for {{Invoice.Period}}</h1>
                 <div>
-                    <p class="pb-2 m-0">Dear Mr. Biderman,</p>
+                    <p class="pb-2 m-0">Dear {{Profile.title}} {{Profile.lastName}},</p>
                     <p class="pb-2 m-0">Here is your collection innvoice for all your purchase from {{Invoice.Period}}.</p>
                     <p class="mb-0">We are happy informing you about your savings with us.</p>
                 </div>
@@ -75,7 +75,7 @@
                     <div id="disclaimer">
                         <small>
                             <small class="text-muted text-small">
-                                Please not for refund: Because you already paid to our supplier, you have a balance with us. In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount. This amount will be transferred to your bankaccount (IBAN with the last digits *1234) as soon as we have received the tax deduct from the German Tax Authorieies. We expect arrival upon the 1st of next month.
+                                Please not for refund: Because you already paid to our supplier, you have a balance with us. In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount. This amount will be transferred to your bankaccount (IBAN with the last digits *{{Profile.IBAN}}) as soon as we have received the tax deduct from the German Tax Authorieies. We expect arrival upon the 1st of next month.
                             </small>
                         </small>
                     </div>
