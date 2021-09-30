@@ -25,8 +25,14 @@ def sammelrechnung():
         "city": "Musterhausen"
 
     }
+    nf_form = {
+        "proc_agency": "USAG Grafenwoehr,<br>HQUSAG Grafenwoer,<br>Tax Relieve Office MWW,<br>Tax Reliev, Unit 2810",
+        "ocr_OrderNr": "123456",
+        "ocr_ValidFrom": "09-2021",
+        "ocr_ValidUntil": "09-2022",
+    }
     
-    return render_template('sammelrechnung.j2', Profile=profile)
+    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form)
 
 @app.route('/')
 def home():

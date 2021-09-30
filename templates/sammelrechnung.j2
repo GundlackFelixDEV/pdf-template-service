@@ -26,10 +26,7 @@
                         <div id="proc_agency" class="pb-2">
                             <div><b>Procurement Agency</b></div>
                             <div class="text-nowrap">
-                            USAG Grafenwoehr,<br>
-                            HQUSAG Grafenwoer,<br>
-                            Tax Relieve Office MWW,<br>
-                            Tax Reliev, Unit 2810
+                            {{NF_FORM.proc_agency}}
                             </div>
                         </div>
                         <div id="invoice" class="pb-2">
@@ -38,9 +35,9 @@
                             <div class="text-nowrap"><b>Date:</b>&nbsp;01.09.2021</div>
                         </div>
                         <div id="nf_form">
-                            <div class="text-nowrap"><b>NF1&nbsp;Order&nbsp;Nr.:</b>&nbsp;xxxxxx</div>
-                            <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;09-2021</div>
-                            <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;10-2021</div>
+                            <div class="text-nowrap"><b>NF1&nbsp;Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
+                            <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;{{NF_FORM.ocr_ValidFrom}}</div>
+                            <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;{{NF_FORM.ocr_ValidUntil}}</div>
                         </div>
                     </div>
                 </div>
