@@ -14,6 +14,11 @@ def send_pdf():
     PDFGenerator.getPDF('./.pdf/home.pdf', 'http://localhost:5001/')
     return send_from_directory(app.config['UPLOAD_FOLDER'], 'home.pdf')
 
+@app.route('/sammelrechnung')
+def sammelrechnung():
+    """Sammel Rechnung."""
+    return render_template('sammelrechnung.j2')
+
 @app.route('/')
 def home():
     """Landing page."""

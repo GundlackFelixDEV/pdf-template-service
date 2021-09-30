@@ -1,0 +1,16 @@
+@media print {
+    @page {
+        size: auto;   /* auto is the initial value */
+        margin: 0;  /* this affects the margin in the printer settings */
+    }
+}
+
+#logo {
+    width: 5rem;
+    height: 5rem;
+}
+
+#logo img {
+    width: 100%;
+    height: auto;
+}
