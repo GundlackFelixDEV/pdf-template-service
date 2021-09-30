@@ -5,95 +5,111 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="offset-8 col-4">
-            <div id="logo">
-                <img src="static/images/logo_placeholder.jpg" />
-            </div>
+    <div class="page d-flex flex-column p-0">
+        <div class="d-flex pb-4">
+            {% include "header.j2" %}
         </div>
-        <div class="col-12">
-            <div class="row">
-                <div id="receipient" class="col-4">
-                    <div class="text-nowrap">Max Mustermann</div>
-                    <div class="text-nowrap">Muster Straße 1</div>
-                    <div class="text-nowrap">11111 Musterstadt</div>
+        <div id="letter-top" class="d-flex row">
+            <div class="offset-8 col-4">
+                <div id="logo">
+                    <img src="static/images/logo_placeholder.jpg" />
                 </div>
-                <div class="col-4 offset-4">
-                    <div id="proc_agency" class="pb-2">
-                        <div><b>Procurement Agency</b></div>
-                        <div class="text-nowrap">
-                        USAG Grafenwoehr,<br>
-                        HQUSAG Grafenwoer,<br>
-                        Tax Relieve Office MWW,<br>
-                        Tax Reliev, Unit 2810
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div id="receipient" class="col-4">
+                        <div class="text-nowrap">Max Mustermann</div>
+                        <div class="text-nowrap">Muster Straße 1</div>
+                        <div class="text-nowrap">11111 Musterstadt</div>
+                    </div>
+                    <div class="col-4 offset-4">
+                        <div id="proc_agency" class="pb-2">
+                            <div><b>Procurement Agency</b></div>
+                            <div class="text-nowrap">
+                            USAG Grafenwoehr,<br>
+                            HQUSAG Grafenwoer,<br>
+                            Tax Relieve Office MWW,<br>
+                            Tax Reliev, Unit 2810
+                            </div>
+                        </div>
+                        <div id="invoice" class="pb-2">
+                            <div class="text-nowrap"><b>Innvoice&nbsp;NR.:</b>&nbsp;123456</div>
+                            <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;August 2021</div>
+                            <div class="text-nowrap"><b>Date:</b>&nbsp;01.09.2021</div>
+                        </div>
+                        <div id="nf_form">
+                            <div class="text-nowrap"><b>NF1&nbsp;Order&nbsp;Nr.:</b>&nbsp;xxxxxx</div>
+                            <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;09-2021</div>
+                            <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;10-2021</div>
                         </div>
                     </div>
-                    <div id="invoice" class="pb-2">
-                        <div class="text-nowrap"><b>Innvoice&nbsp;NR.:</b>&nbsp;123456</div>
-                        <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;August 2021</div>
-                        <div class="text-nowrap"><b>Date:</b>&nbsp;01.09.2021</div>
-                    </div>
-                    <div class="nf1">
-                        <span class="text-nowrap"><b>NF1&nbsp;Order&nbsp;Nr.:</b>&nbsp;xxxxxx</span>
-                        <span class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;09-2021</span>
-                        <spa class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;10-2021</span>
-                    </div>
                 </div>
             </div>
         </div>
-        <div id="message_top" class="col-12 pt-4">
-            <h1>Invoice for August 2021</h1>
-            <div>
-                <p>Dear Mr. Biderman,</p>
-                <p>Here is your collection innvoice for all your purchase from August 2021.</p>
-                <p class="mb-0">We are happy informing you about your savings with us.</p>
-            </div>
-        </div>
-        <div id="summery" class="col-12 pt-4 pb-4">
-            <div class="alert alert-info mb-0">
+        <div id="letter-body" class="d-flex row">
+            <div id="message_top" class="col-12 pt-4">
+                <h1>Invoice for August 2021</h1>
                 <div>
-                    <h2>Savings Summery</h2>
-                    <span class="float-right text-secondary text-nowrap">Uploaded Receipts: 33</span>
-                </div>
-                <div class="row pb-4 pt-4">
-                    <div class="col-4 text-center">
-                        <h5>Total paid upfront</h5>
-                        <span><b>119&nbsp;EUR</b></span>
-                    </div>
-                    <div class="col-4 text-center">
-                        <h5>Remonon Price</h5>
-                        <span><b>105&nbsp;EUR</b></span>
-                    </div>
-                    <div class="col-4 text-left">
-                        <h4>Total Savings<h4>
-                        <span><b>14&nbsp;EUR</b></span>
-                    </div>
-                </div>
-                <div>
-                    <small><small class="text-muted text-small">Please not for refund: Because you already paid to our supplier, you have a balance with us. 
-        In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount.
-        This amount will be transferred to your bankaccount (IBAN with the last digits *1234) as soon as we have received the tax deduct from the German Tax Authorieies.
-        We expect arrival upon the 1st of next month.</small></small>
+                    <p>Dear Mr. Biderman,</p>
+                    <p>Here is your collection innvoice for all your purchase from August 2021.</p>
+                    <p class="mb-0">We are happy informing you about your savings with us.</p>
                 </div>
             </div>
+            <div id="summery" class="col-12 pt-3 pb-3">
+                <div class="alert alert-info mb-0">
+                    <div>
+                        <span id="summery_receit_indicator" class="float-right text-secondary text-nowrap"><b>Uploaded Receipts:&nbsp;33</b></span>
+                        <h2 class="mb-0">Savings Summery</h2>
+                    
+                    </div>
+                    <div class="row pb-4 pt-4">
+                        <div class="col-4 text-center">
+                            <h5>Total paid upfront</h5>
+                            <span><b>119&nbsp;EUR</b></span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <h5>Remonon Price</h5>
+                            <span><b>105&nbsp;EUR</b></span>
+                        </div>
+                        <div class="col-4 text-left">
+                            <h4>Total Savings<h4>
+                            <span><b>14&nbsp;EUR</b></span>
+                        </div>
+                    </div>
+                    <div id="disclaimer">
+                        <small>
+                            <small class="text-muted text-small">
+                                Please not for refund: Because you already paid to our supplier, you have a balance with us. In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount. This amount will be transferred to your bankaccount (IBAN with the last digits *1234) as soon as we have received the tax deduct from the German Tax Authorieies. We expect arrival upon the 1st of next month.
+                            </small>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div id="message_bottom" class="col-12">
+                <p class="pb-4 m-0">See more detail(s) on the next pages.</p>
+                <p class="pb-4 m-0">The invoice shows the total of all uploaded receits of your purchases.<br>
+                We also total of VAT free Free prices including all Service-Fee.
+                </p>
+            </div>
         </div>
-        <div id="message_bottom" class="col-12">
-            <p>See detail(s) on the next pages.</p>
-            <p>The invoice shows the total of all uploaded receits of your purchases.<br>
-            We also total of VAT free Free prices including all Service-Fee.
-            </p>
+        <div id="letter-bottom" class="d-flex row">
+            <div id="greeting" class="col-12">
+                <p class="pb-4 mb-2">
+                    Sincerely,
+                </p>
+                <p class="m-0">
+                    Your Team-Remonon
+                </p>
+            </div>
         </div>
-        <div id="greeting" class="col-12">
-            <p>
-                Sincerely,<br><br>
-                Your Team-Remonon
-            </p>
-        </div>
-        <div id="service_message" class="col-12">
-            <small>
-                Get help by calling the service team online:<br>
-                <a href="https://www.remonon/help.com">www.remonon/help.com</a>
-            </small>
+        <div class="d-flex mt-auto flex-column">
+            <div id="service-message">
+                <small>
+                    Get help by calling the service team online:<br>
+                    <a href="https://www.remonon/help.com">www.remonon/help.com</a>
+                </small>
+            </div>
+            {% include "footer.j2" %}
         </div>
     </div>
 {% endblock %}
