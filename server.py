@@ -25,7 +25,7 @@ def sammelrechnung():
         "reciepientsAddress": "Musterstraße 11",
         "zipCode": "123456",
         "city": "Musterhausen",
-        "IBAN": "12345678910"
+        "IBAN": "DE07123412341234123412"
 
     }
     nf_form = {
