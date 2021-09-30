@@ -9,10 +9,11 @@ app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = './.pdf/'
 
+@app.route('/pdf/<template>')
 @app.route('/pdf')
-def send_pdf():
-    PDFGenerator.getPDF('./.pdf/home.pdf', 'http://localhost:5001/')
-    return send_from_directory(app.config['UPLOAD_FOLDER'], 'home.pdf')
+def send_pdf(template="home"):
+    PDFGenerator.getPDF(f'./.pdf/{template}.pdf', f'http://localhost:5001/{template}')
+    return send_from_directory(app.config['UPLOAD_FOLDER'], f'{template}.pdf')
 
 @app.route('/sammelrechnung')
 def sammelrechnung():
