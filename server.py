@@ -39,7 +39,23 @@ def sammelrechnung():
         "Period": "September 2021",
         "Date": "1.10.2021"
     }
-    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form, Invoice=invoice)
+    receits = [
+        {
+            "vendor": {
+                "name": "Muster Vendor",
+                "ustdid": "xxx-xxx-xxxxxx",
+                "RemononID": "48483",
+                "ocr_MerchantStreet": "Am He",
+                "ocr_MerchantCity": "",
+                "ocr_MerchantPostcode": ""
+            },
+            "TotalAmount": 119,
+            "TotalRomonon": 105,
+            "TotalRefund": 14,
+        }
+    ]
+
+    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form, Invoice=invoice, Receits=receits)
 
 @app.route('/')
 def home():
