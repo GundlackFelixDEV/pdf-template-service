@@ -18,7 +18,15 @@ def send_pdf(template="home"):
 @app.route('/sammelrechnung')
 def sammelrechnung():
     """Sammel Rechnung."""
-    return render_template('sammelrechnung.j2')
+    profile = {
+        "reciepientsFullName": "Max Mustermann",
+        "reciepientsAddress": "Musterstraße 11",
+        "zipCode": "123456",
+        "city": "Musterhausen"
+
+    }
+    
+    return render_template('sammelrechnung.j2', Profile=profile)
 
 @app.route('/')
 def home():
