@@ -7,6 +7,7 @@
     small {
         font-size: 10px;
     }
+    
     div.page {
         padding: 1.5rem;
     }
@@ -56,7 +57,7 @@ div.footer {
 }
 
 #summery_receit_indicator {
-    font-size: 12px;
+    font-size: 9px;
     color: lightgray;
     float: right;
 }
@@ -64,9 +65,8 @@ div.footer {
 #receipient,
 #proc_agency,
 #invoice,
-#nf_form,
-.header {
-    font-size: 12px;
+#nf_form {
+    font-size: 10px;
 }
 
 #letter-top,
