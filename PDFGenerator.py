@@ -3,28 +3,35 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import json, base64
 
-TARGET_PATH=str(os.path.realpath('.')) + '/.pdf/'
-
-
-  
-
-def html2pdf(url, out=None):
+def html2pdf(url, target, param):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
 
     driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
-    print("Title: %s" % driver.title)
 
-    file_name = write_pdf(driver)
+    # If there are parameter - Use a POST Request
+    if param:
+        js = f'''var xhr = new XMLHttpRequest();
+            xhr.open('POST', '{url}', false);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            xhr.send('data={json.dumps(param)}');
+            return xhr.response;'''
+
+        driver.execute_script(js)
+    # Default benavior - use a get request
+    else:
+        driver.get(url)
+
+    file_name = write_pdf(driver, target)
     
     driver.quit()
 
     return file_name
 
-def write_pdf(driver, out="", filename=""):
+def write_pdf(driver, target):
     params = {  
         'landscape': False,
         'displayHeaderFooter': False,
@@ -42,17 +49,9 @@ def write_pdf(driver, out="", filename=""):
 
     pdf = base64.b64decode(result['data'])
 
-    file_name = filename if filename else driver.title + ".pdf"
-    with open((TARGET_PATH if not out else out) + file_name, 'wb') as fd:
+    with open(target, 'wb') as fd:
         fd.write(pdf)
 
-    return file_name
-
 if __name__ == '__main__':
-    if not os.path.exists(TARGET_PATH):
-        os.makedirs(TARGET_PATH)
 
-    html2pdf(out=f"{TARGET_PATH}/test.pdf", url="https://google.com")
-
-    print(os.listdir(TARGET_PATH))
-    print(os.listdir('/usr/out/chrome'))
+    html2pdf(url="https://google.com", param={}, target="./.pdf/PDFGenerator_test.pdf")

@@ -5,7 +5,7 @@ import argparse
 import os, sys
 import PDFGenerator
 from TEST_DATA import TESTINPUT
-
+import json
         
 
 app = Flask(__name__)
@@ -15,24 +15,28 @@ app.config['UPLOAD_FOLDER'] = './.pdf/'
 @app.route('/pdf/<template>', methods=['GET', 'POST'])
 @app.route('/pdf')
 def send_pdf(template=""):
-    filename = PDFGenerator.html2pdf(url=f'http://localhost:5001/{template}', out=app.config['UPLOAD_FOLDER'])
+    filename = f"{TESTINPUT['title']}.pdf"
+    PDFGenerator.html2pdf(url=f'http://localhost:5001/{template}', param=TESTINPUT if template else {}, target=app.config['UPLOAD_FOLDER']+filename)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route('/sammelrechnung', methods=['POST', 'GET'])
 def sammelrechnung():
     """Sammel Rechnung."""
     if request.method == 'POST':
-        profile = request.form.get('profile')
-        nf_form = request.form.get('nf_form')
-        invoice = request.form.get('invoice')
-        receits = request.form.get('receits')
+        data = json.loads(request.form.get('data'))
+        profile = data.get('profile')
+        nf_form = data.get('nf_form')
+        invoice = data.get('invoice')
+        receits = data.get('receits')
+        title = data.get('title')
     else:
         profile = TESTINPUT['profile']
         nf_form = TESTINPUT['nf_form']
         invoice = TESTINPUT['invoice']
         receits = TESTINPUT['receits']
+        title=TESTINPUT['title']
 
-    return render_template('sammelrechnung.j2',title=TESTINPUT['title'], Profile=profile, NF_FORM=nf_form, Invoice=invoice, Receits=receits)
+    return render_template('sammelrechnung.j2',title=title, Profile=profile, NF_FORM=nf_form, Invoice=invoice, Receits=receits)
 
 @app.route('/')
 def home():
