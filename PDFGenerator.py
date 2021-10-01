@@ -13,14 +13,25 @@ def html2pdf(url, target, param):
 
     # If there are parameter - Use a POST Request
     if param:
+        # Render the HTML Template
         js = f'''var xhr = new XMLHttpRequest();
             xhr.open('POST', '{url}', false);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
             xhr.send('data={json.dumps(param)}');
             return xhr.response;'''
+        result = driver.execute_script(js)
+        # Save Temporary result to Filesystem
+        html_target = os.path.abspath(__file__) +  "~tmp.html"
+        with open(html_target, 'w') as fd:
+            fd.write(result)
+        
+        # Open local HtmlPage
+        driver.get('file://'+ str(os.path.abspath(html_target)))
 
-        driver.execute_script(js)
+        # Clean Temporary result
+        os.remove(html_target)
+
     # Default benavior - use a get request
     else:
         driver.get(url)
