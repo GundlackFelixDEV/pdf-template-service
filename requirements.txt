@@ -1,3 +1,4 @@
 flask
 flask-cors
 Jinja2
+selenium

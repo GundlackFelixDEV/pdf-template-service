@@ -1,64 +1,38 @@
-from flask import render_template, send_from_directory, Flask
+from flask import request, render_template, send_from_directory, Flask
 from flask_cors import CORS
 import logging
 import argparse
 import os, sys
 import PDFGenerator
+from TEST_DATA import TESTINPUT
+
+        
 
 app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = './.pdf/'
 
-@app.route('/pdf/<template>')
+@app.route('/pdf/<template>', methods=['GET', 'POST'])
 @app.route('/pdf')
-def send_pdf(template="home"):
-    PDFGenerator.getPDF(f'./.pdf/{template}.pdf', f'http://localhost:5001/{template}')
-    return send_from_directory(app.config['UPLOAD_FOLDER'], f'{template}.pdf')
+def send_pdf(template=""):
+    filename = PDFGenerator.html2pdf(url=f'http://localhost:5001/{template}', out=app.config['UPLOAD_FOLDER'])
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.route('/sammelrechnung')
+@app.route('/sammelrechnung', methods=['POST', 'GET'])
 def sammelrechnung():
     """Sammel Rechnung."""
-    profile = {
-        "reciepientsFullName": "Max Mustermann",
-        "lastName": "Mustermann",
-        "title": "Mr.",
-        "reciepientsAddress": "Musterstraße 11",
-        "zipCode": "123456",
-        "city": "Musterhausen",
-        "IBAN": "DE07123412341234123412"
+    if request.method == 'POST':
+        profile = request.form.get('profile')
+        nf_form = request.form.get('nf_form')
+        invoice = request.form.get('invoice')
+        receits = request.form.get('receits')
+    else:
+        profile = TESTINPUT['profile']
+        nf_form = TESTINPUT['nf_form']
+        invoice = TESTINPUT['invoice']
+        receits = TESTINPUT['receits']
 
-    }
-    nf_form = {
-        "proc_agency": "USAG Grafenwoehr,<br>HQUSAG Grafenwoer,<br>Tax Relieve Office MWW,<br>Tax Reliev, Unit 2810",
-        "ocr_OrderNr": "GR-NF1-189559",
-        "ocr_ValidFrom": "09-2021",
-        "ocr_ValidUntil": "09-2022",
-    }
-    invoice = {
-        "TotalAmount": 119,
-        "TotalRemonon": 105,
-        "TotalRefund": 14,
-        "InvoiceNr": "A/10000-01/21/09/GR-NF1-189559.1",
-        "Period": "September 2021",
-        "Date": "1.10.2021"
-    }
-    receits = [
-        {
-            "vendor": {
-                "name": "Muster Vendor",
-                "ustdid": "xxx-xxx-xxxxxx",
-                "RemononID": "48483",
-                "ocr_MerchantStreet": "Am He",
-                "ocr_MerchantCity": "",
-                "ocr_MerchantPostcode": ""
-            },
-            "TotalAmount": 119,
-            "TotalRomonon": 105,
-            "TotalRefund": 14,
-        }
-    ]
-
-    return render_template('sammelrechnung.j2', Profile=profile, NF_FORM=nf_form, Invoice=invoice, Receits=receits)
+    return render_template('sammelrechnung.j2',title=TESTINPUT['title'], Profile=profile, NF_FORM=nf_form, Invoice=invoice, Receits=receits)
 
 @app.route('/')
 def home():
