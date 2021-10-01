@@ -51,7 +51,3 @@ def write_pdf(driver, target):
 
     with open(target, 'wb') as fd:
         fd.write(pdf)
-
-if __name__ == '__main__':
-
-    html2pdf(url="https://google.com", param={}, target="./.pdf/PDFGenerator_test.pdf")
