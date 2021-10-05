@@ -1,108 +1,113 @@
 {% extends 'layout.j2' %}
 
+
 {% block content %}
-    <div class="page d-flex flex-column p-0">
-        <div class="d-flex pb-4">
-            {% include "header.j2" %}
-        </div>
-        <div id="letter-top" class="d-flex row">
-            <div class="offset-8 col-4">
-                <div id="logo">
-                    <img src="static/images/logo_placeholder.jpg" />
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
-                    <div id="receipient" class="col-4">
-                        <div class="text-nowrap">{{Profile.reciepientsFullName}}</div>
-                        <div class="text-nowrap">{{Profile.reciepientsAddress}}</div>
-                        <div class="text-nowrap">{{Profile.zipCode}}&nbsp;{{Profile.city}}</div>
+<div class="page-header">
+    {% include 'header.j2' %}
+</div>
+
+<div class="page-footer">
+    {% include 'footer.j2' %}
+</div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <!--place holder for the fixed-position header-->
+          <div class="page-header-space"></div>
+        </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <!--*** CONTENT GOES HERE ***-->
+          <div class="page pr-2 pl-2">
+                {% include "letter_top.j2" %}
+                <div id="letter-body" class="d-flex row">
+                    <div id="message_top" class="col-12 pt-4">
+                        <h1>Invoice for {{Invoice.Period}}</h1>
+                        <div>
+                            <p class="pb-2 m-0">Dear {{Profile.title}} {{Profile.lastName}},</p>
+                            <p class="pb-2 m-0">Here is your collection innvoice for all your purchase from {{Invoice.Period}}.</p>
+                            <p class="mb-0">We are happy informing you about your savings with us.</p>
+                        </div>
                     </div>
-                    <div class="col-4 offset-4">
-                        <div id="proc_agency" class="pb-2">
-                            <div><b>Procurement Agency</b></div>
-                            <div class="text-nowrap">
-                            {{NF_FORM.proc_agency}}
+                    <div id="summery" class="col-12 pt-3 pb-3">
+                        <div class="alert alert-info mb-0">
+                            <div>
+                                <span id="summery_receit_indicator" class="float-right text-secondary text-nowrap"><b>Uploaded Receipts:&nbsp;{{Receits | length}}</b></span>
+                                <h2 class="mb-0">Savings Summery</h2>
+                            </div>
+                            <div class="row pb-4 pt-4">
+                                <div class="col-4 text-center">
+                                    <h5>Total paid upfront</h5>
+                                    <span><b>{{Invoice.TotalAmount}}&nbsp;EUR</b></span>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <h5>Remonon Price</h5>
+                                    <span><b>{{Invoice.TotalRemonon}}&nbsp;EUR</b></span>
+                                </div>
+                                <div class="col-4 text-left">
+                                    <h4>Total Savings<h4>
+                                    <span><b>{{Invoice.TotalRefund}}&nbsp;EUR</b></span>
+                                </div>
+                            </div>
+                            <div id="disclaimer">
+                                <small>
+                                    <small class="text-muted text-small">
+                                        Please not for refund: Because you already paid to our supplier, you have a balance with us. In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount. This amount will be transferred to your bankaccount (IBAN with the last digits *{{Profile.IBAN}}) as soon as we have received the tax deduct from the German Tax Authorieies. We expect arrival upon the 1st of next month.
+                                    </small>
+                                </small>
                             </div>
                         </div>
-                        <div id="invoice" class="pb-2">
-                            <div class="text-nowrap"><b>Innvoice&nbsp;Nr.:</b>&nbsp;{{Invoice.InvoiceNr}}</div>
-                            <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;{{Invoice.Period}}</div>
-                            <div class="text-nowrap"><b>Date:</b>&nbsp;{{Invoice.Date}}</div>
-                        </div>
-                        <div id="nf_form">
-                            <div class="text-nowrap"><b>Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
-                            <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;{{NF_FORM.ocr_ValidFrom}}</div>
-                            <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;{{NF_FORM.ocr_ValidUntil}}</div>
-                        </div>
+                    </div>
+                    <div id="message_bottom" class="col-12">
+                        <p class="pb-4 m-0">See more detail(s) on the next pages.</p>
+                        <p class="pb-4 m-0">The invoice shows the total of all uploaded receits of your purchases.<br>
+                        We also total of VAT free Free prices including all Service-Fee.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="letter-body" class="d-flex row">
-            <div id="message_top" class="col-12 pt-4">
-                <h1>Invoice for {{Invoice.Period}}</h1>
-                <div>
-                    <p class="pb-2 m-0">Dear {{Profile.title}} {{Profile.lastName}},</p>
-                    <p class="pb-2 m-0">Here is your collection innvoice for all your purchase from {{Invoice.Period}}.</p>
-                    <p class="mb-0">We are happy informing you about your savings with us.</p>
+                <div id="letter-bottom" class="d-flex row">
+                    <div id="greeting" class="col-12">
+                        <p class="pb-4 mb-2">
+                            Sincerely,
+                        </p>
+                        <p class="m-0">
+                            Your Team-Remonon
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div id="summery" class="col-12 pt-3 pb-3">
-                <div class="alert alert-info mb-0">
-                    <div>
-                        <span id="summery_receit_indicator" class="float-right text-secondary text-nowrap"><b>Uploaded Receipts:&nbsp;{{Receits | length}}</b></span>
-                        <h2 class="mb-0">Savings Summery</h2>
-                    </div>
-                    <div class="row pb-4 pt-4">
-                        <div class="col-4 text-center">
-                            <h5>Total paid upfront</h5>
-                            <span><b>{{Invoice.TotalAmount}}&nbsp;EUR</b></span>
-                        </div>
-                        <div class="col-4 text-center">
-                            <h5>Remonon Price</h5>
-                            <span><b>{{Invoice.TotalRemonon}}&nbsp;EUR</b></span>
-                        </div>
-                        <div class="col-4 text-left">
-                            <h4>Total Savings<h4>
-                            <span><b>{{Invoice.TotalRefund}}&nbsp;EUR</b></span>
-                        </div>
-                    </div>
-                    <div id="disclaimer">
+                <div class="d-flex mt-auto flex-column">
+                    <div id="service-message">
                         <small>
-                            <small class="text-muted text-small">
-                                Please not for refund: Because you already paid to our supplier, you have a balance with us. In order to let you use your right to procure VAT Free, you are entitled to receive back the above mentioned amount. This amount will be transferred to your bankaccount (IBAN with the last digits *{{Profile.IBAN}}) as soon as we have received the tax deduct from the German Tax Authorieies. We expect arrival upon the 1st of next month.
-                            </small>
+                            Get help by calling the service team online:<br>
+                            <a href="https://www.remonon/help.com">www.remonon/help.com</a>
                         </small>
                     </div>
                 </div>
-            </div>
-            <div id="message_bottom" class="col-12">
-                <p class="pb-4 m-0">See more detail(s) on the next pages.</p>
-                <p class="pb-4 m-0">The invoice shows the total of all uploaded receits of your purchases.<br>
-                We also total of VAT free Free prices including all Service-Fee.
-                </p>
-            </div>
-        </div>
-        <div id="letter-bottom" class="d-flex row">
-            <div id="greeting" class="col-12">
-                <p class="pb-4 mb-2">
-                    Sincerely,
-                </p>
-                <p class="m-0">
-                    Your Team-Remonon
-                </p>
-            </div>
-        </div>
-        <div class="d-flex mt-auto flex-column">
-            <div id="service-message">
-                <small>
-                    Get help by calling the service team online:<br>
-                    <a href="https://www.remonon/help.com">www.remonon/help.com</a>
-                </small>
-            </div>
-            {% include "footer.j2" %}
-        </div>
-    </div>
+          </div>
+          <div class="page pr-2 pl-2">
+            {% include "letter_top.j2" %}
+            {% include "receit_listing.j2" %}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td>
+          <!--place holder for the fixed-position footer-->
+          <div class="page-footer-space"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+{% include "page_style.html" %}
 {% include "sammelrechnung_style.html" %}
 {% endblock %}
+

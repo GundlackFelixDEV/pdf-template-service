@@ -11,6 +11,14 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}"
+        },
+        {
+            "name": "Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/server.py",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}"
         }
     ]
 }

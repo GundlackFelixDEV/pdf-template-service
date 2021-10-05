@@ -1,0 +1,55 @@
+<style>
+    /* Styles go here */
+
+.page-header, .page-header-space {
+    height: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+  
+.page-footer, .page-footer-space {
+    padding: 0.75rem 3rem;
+    font-size: 10px;
+    margin-top: 0.75rem;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+
+}
+  
+.page-header {
+    position: fixed;
+    top: 0mm;
+    width: 100%;
+    background-color: black;
+}
+  
+.page {
+    page-break-after: always;
+    height: auto;
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.page-break-auto  {
+    page-break-before: auto;
+    page-break-after: auto;
+    page-break-inside: avoid;
+}
+
+@page {
+    heigh:auto;
+    margin: 0;
+}
+
+
+@media print {
+    body > table > thead {display: table-header-group;} 
+    body > table > foot {display: table-footer-group;}
+    body {margin: 0;}
+}
+</style>

@@ -18,23 +18,195 @@ INVOICE = {
     "TotalRemonon": 105,
     "TotalRefund": 14,
     "InvoiceNr": "A-10000-01-2109-GR-NF1-189559.1",
-    "Period": "September 2021",
+    "Period": "August 2021",
     "Date": "1.10.2021"
 }
 
 RECEITS = [
+        {
+        "vendor": {
+            "name": "Muster Vendor",
+            "ustdid": "xxx-xxx-xxxxxx",
+            "RemononID": "48483",
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
+        },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
+    },
+        {
+        "vendor": {
+            "name": "Muster Vendor",
+            "ustdid": "xxx-xxx-xxxxxx",
+            "RemononID": "48483",
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
+        },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
+    },
     {
         "vendor": {
             "name": "Muster Vendor",
             "ustdid": "xxx-xxx-xxxxxx",
             "RemononID": "48483",
-            "ocr_MerchantStreet": "Am He",
-            "ocr_MerchantCity": "",
-            "ocr_MerchantPostcode": ""
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
         },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
         "TotalAmount": 119,
-        "TotalRomonon": 105,
+        "TotalRemonon": 105,
         "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
+    },
+        {
+        "vendor": {
+            "name": "Muster Vendor",
+            "ustdid": "xxx-xxx-xxxxxx",
+            "RemononID": "48483",
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
+        },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
+    },
+    {
+        "vendor": {
+            "name": "Muster Vendor",
+            "ustdid": "xxx-xxx-xxxxxx",
+            "RemononID": "48483",
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
+        },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
+    },{
+        "vendor": {
+            "name": "Muster Vendor",
+            "ustdid": "xxx-xxx-xxxxxx",
+            "RemononID": "48483",
+            "ocr_MerchantStreet": "Am Heuballenhof 28",
+            "ocr_MerchantCity": "Guenzierweiler",
+            "ocr_MerchantPostcode": "3718",
+            "ocr_VatNumber": "DE999999999",
+            "ocr_TaxNumber": "255/383/332"
+        },
+        "line_items": [{
+            "ocr_Quantity": 3,
+            "ocr_ProductName": "Playstation",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }, {
+            "ocr_Quantity": 1,
+            "ocr_ProductName": "Other Product",
+            "ocr_GrossLineTotal": 119,
+            "remonon_GrossLineTotal": 105,
+            "refund": 14
+        }],
+        "TotalAmount": 119,
+        "TotalRemonon": 105,
+        "TotalRefund": 14,
+        "ocr_Date": "12.12.2021 - 18:29",
+        "romononID": "48483",
+        "invoiceNr": "X"
     }
 ]
 
