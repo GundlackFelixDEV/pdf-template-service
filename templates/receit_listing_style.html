@@ -10,9 +10,29 @@
             height: auto;
         }
 
-        div.page-break-auto {
-            page-break-before: auto;
-            page-break-inside: avoid;
+        div.receit {
+            border-color: gray;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        div.receit-container {
+            margin-bottom: 15px;
+            margin-top: 10px;
+            padding: 0px;
+        }
+
+        div.receit-info {
+            background-color: lightgray;
+            border-bottom: 1px solid gray;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        div.receit-info > div:first-child{
+            font-size: 14px;
+            font-weight: bold;
         }
 
         div.receit-info > div:not(:first-child){
@@ -22,6 +42,10 @@
         div.receit-logo {
             width: 128px;
             margin-right: 0.75rem;
+        }
+
+        div.receit-table table {
+            margin: 0px
         }
     </style>
 {% endblock %}

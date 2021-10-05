@@ -1,35 +1,31 @@
-
-<div class="letter-top d-flex row">
-    <div class="offset-8 col-4">
-        <div id="logo">
+<div class="letter-top row">
+    <div class="col-8"></div>
+    <div class="col-4">
+        <div class="logo">
             <img src="static/images/logo_placeholder.jpg" />
         </div>
     </div>
-    <div class="col-12">
-        <div class="row">
-            <div id="receipient" class="col-4">
-                <div class="text-nowrap">{{Profile.reciepientsFullName}}</div>
-                <div class="text-nowrap">{{Profile.reciepientsAddress}}</div>
-                <div class="text-nowrap">{{Profile.zipCode}}&nbsp;{{Profile.city}}</div>
+    <div id="receipient" class="col-8">
+        <div class="text-nowrap">{{Profile.reciepientsFullName}}</div>
+            <div class="text-nowrap">{{Profile.reciepientsAddress}}</div>
+            <div class="text-nowrap">{{Profile.zipCode}}&nbsp;{{Profile.city}}</div>
+     </div>
+    <div class="col-4">
+        <div id="proc_agency" class="pb-2">
+            <div><b>Procurement Agency</b></div>
+            <div class="text-nowrap">
+            {{NF_FORM.proc_agency}}
             </div>
-            <div class="col-4 offset-4">
-                <div id="proc_agency" class="pb-2">
-                    <div><b>Procurement Agency</b></div>
-                    <div class="text-nowrap">
-                    {{NF_FORM.proc_agency}}
-                    </div>
-                </div>
-                <div id="invoice" class="pb-2">
-                    <div class="text-nowrap"><b>Innvoice&nbsp;Nr.:</b>&nbsp;{{Invoice.InvoiceNr}}</div>
-                    <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;{{Invoice.Period}}</div>
-                    <div class="text-nowrap"><b>Date:</b>&nbsp;{{Invoice.Date}}</div>
-                </div>
-                <div id="nf_form">
-                    <div class="text-nowrap"><b>Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
-                    <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;{{NF_FORM.ocr_ValidFrom}}</div>
-                    <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;{{NF_FORM.ocr_ValidUntil}}</div>
-                </div>
-            </div>
+        </div>
+        <div id="invoice" class="pb-2">
+            <div class="text-nowrap"><b>Innvoice&nbsp;Nr.:</b>&nbsp;{{Invoice.InvoiceNr}}</div>
+            <div class="text-nowrap"><b>Innvoice&nbsp;Month:</b>&nbsp;{{Invoice.Period}}</div>
+            <div class="text-nowrap"><b>Date:</b>&nbsp;{{Invoice.Date}}</div>
+        </div>
+        <div id="nf_form">
+            <div class="text-nowrap"><b>Order&nbsp;Nr.:</b>&nbsp;{{NF_FORM.ocr_OrderNr}}</div>
+            <div class="text-nowrap"><b>Valid&nbsp;From:</b>&nbsp;{{NF_FORM.ocr_ValidFrom}}</div>
+            <div class="text-nowrap"><b>Valid&nbsp;Till:</b>&nbsp;{{NF_FORM.ocr_ValidUntil}}</div>
         </div>
     </div>
 </div>

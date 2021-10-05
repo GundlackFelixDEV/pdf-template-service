@@ -24,9 +24,9 @@
       <tr>
         <td>
           <!--*** CONTENT GOES HERE ***-->
-          <div class="page pr-2 pl-2">
+          <div class="page">
                 {% include "letter_top.j2" %}
-                <div id="letter-body" class="d-flex row">
+                <div id="letter-body">
                     <div id="message_top" class="col-12 pt-4">
                         <h1>Invoice for {{Invoice.Period}}</h1>
                         <div>
@@ -71,7 +71,7 @@
                         </p>
                     </div>
                 </div>
-                <div id="letter-bottom" class="d-flex row">
+                <div id="letter-bottom">
                     <div id="greeting" class="col-12">
                         <p class="pb-4 mb-2">
                             Sincerely,
@@ -81,16 +81,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="d-flex mt-auto flex-column">
-                    <div id="service-message">
-                        <small>
-                            Get help by calling the service team online:<br>
-                            <a href="https://www.remonon/help.com">www.remonon/help.com</a>
-                        </small>
-                    </div>
+                <div id="service-message">
+                    Get help by calling the service team online:<br>
+                    <a href="https://www.remonon/help.com">www.remonon/help.com</a>
                 </div>
           </div>
-          <div class="page pr-2 pl-2">
+          <div class="page">
             {% include "letter_top.j2" %}
             {% include "receit_listing.j2" %}
           </div>
